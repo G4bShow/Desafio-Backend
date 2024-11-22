@@ -23,8 +23,8 @@ import static org.springframework.data.mongodb.core.aggregation.Aggregation.*;
 @RequiredArgsConstructor
 public class OrderService {
 
-    private OrderRepository orderRepository;
-    private MongoTemplate mongoTemplate;
+    private final OrderRepository orderRepository;
+    private final MongoTemplate mongoTemplate;
 
     public void save(OrderCreatedEvent event) {
         var entity = OrderEntity.builder()
@@ -51,7 +51,7 @@ public class OrderService {
 
         var response = mongoTemplate.aggregate(aggregations, "tb_orders", Document.class);
 
-        return new BigDecimal(Objects.requireNonNull(response.getUniqueMappedResult()).get("total").toString());
+        return new BigDecimal(response.getUniqueMappedResult().get("total").toString());
 
     }
 

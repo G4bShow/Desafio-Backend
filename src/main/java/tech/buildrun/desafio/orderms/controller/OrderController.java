@@ -18,7 +18,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class OrderController {
 
-    private OrderService orderService;
+    private final OrderService orderService;
 
     @GetMapping("/customers/{customerId}/orders")
     public ResponseEntity<ApiResponse<OrderResponse>> listOrders(@PathVariable("customerId") Long customerId,
