@@ -1,4 +1,4 @@
-package tech.buildrun.desafio.oderms.Config;
+package tech.buildrun.desafio.orderms.Config;
 
 import org.springframework.amqp.core.Declarable;
 import org.springframework.amqp.core.Queue;

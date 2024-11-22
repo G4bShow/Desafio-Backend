@@ -1,4 +1,4 @@
-package tech.buildrun.btgpactual.orderms.controller.dto;
+package tech.buildrun.desafio.orderms.controller.dto;
 
 import org.springframework.data.domain.Page;
 

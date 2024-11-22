@@ -1,4 +1,4 @@
-package tech.buildrun.desafio.oderms;
+package tech.buildrun.desafio.orderms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,5 +10,4 @@ public class OrdermsApplication {
 
         SpringApplication.run(OrdermsApplication.class, args);
     }
-
 }

@@ -1,8 +1,8 @@
-package tech.buildrun.desafio.oderms.listener.Order.Creater.dto;
+package tech.buildrun.desafio.orderms.listener.dto;
 
 import java.math.BigDecimal;
 
 public record OrderItemEvent(String produto,
                              Integer quantidade,
-                             BigDecimal price) {
+                             BigDecimal preco) {
 }
