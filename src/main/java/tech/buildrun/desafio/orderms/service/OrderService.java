@@ -1,6 +1,6 @@
 package tech.buildrun.desafio.orderms.service;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.bson.Document;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -20,11 +20,11 @@ import java.util.Objects;
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.*;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class OrderService {
 
-    private final OrderRepository orderRepository;
-    private final MongoTemplate mongoTemplate;
+    private OrderRepository orderRepository;
+    private MongoTemplate mongoTemplate;
 
     public void save(OrderCreatedEvent event) {
         var entity = OrderEntity.builder()
@@ -67,7 +67,11 @@ public class OrderService {
     /*OBS2*/
     private static List<OrderItem> getOrderItems(OrderCreatedEvent event) {
         return event.itens().stream()
-                .map(i -> new OrderItem(i.produto(), i.quantidade(), i.preco()))
+                .map(i -> OrderItem.builder()
+                        .product(i.produto())
+                        .quantity(i.quantidade())
+                        .price(i.preco())
+                        .build())
                 .toList();
     }
 }

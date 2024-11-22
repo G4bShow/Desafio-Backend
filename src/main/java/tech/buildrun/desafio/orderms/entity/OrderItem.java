@@ -1,18 +1,13 @@
 package tech.buildrun.desafio.orderms.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.FieldType;
 
 import java.math.BigDecimal;
 
-@Getter
-@Setter
+@Data
 @Builder
-@AllArgsConstructor
 public class OrderItem {
 
     private String product;
